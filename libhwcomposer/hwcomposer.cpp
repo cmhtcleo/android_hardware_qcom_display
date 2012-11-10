@@ -953,25 +953,9 @@ static void hwc_enableHDMIOutput(hwc_composer_device_t *dev, int externaltype) {
  * value - value associated with the event
  */
 static void hwc_perform(hwc_composer_device_t *dev, int event, int value) {
-    hwc_context_t* ctx = (hwc_context_t*)(dev);
-    private_hwc_module_t* hwcModule = reinterpret_cast<private_hwc_module_t*>(
-                                                           dev->common.module);
-    switch(event) {
-#if defined HDMI_DUAL_DISPLAY
-        case EVENT_EXTERNAL_DISPLAY:
-            hwc_enableHDMIOutput(dev, value);
-            break;
-#endif
-       case EVENT_FORCE_COMPOSITION:
-            ctx->forceComposition = value;
-            break;
-
-        default:
-            LOGE("In hwc:perform UNKNOWN EVENT = %d!!", event);
-            break;
-    }
-    return;
+    LOGE("hwc: UNKNOWN EVENT %d", event);
 }
+
 static bool isValidDestination(const framebuffer_device_t* fbDev, const hwc_rect_t& rect)
 {
     if (!fbDev) {
