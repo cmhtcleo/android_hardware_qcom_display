@@ -963,7 +963,7 @@ static void hwc_perform(hwc_composer_device_t *dev, int event, int value) {
             break;
 #endif
        case EVENT_FORCE_COMPOSITION:
-            ctx->forceComposition = value;
+            //ctx->forceComposition = value;
             break;
 
         default:
